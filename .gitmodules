@@ -1,0 +1,3 @@
+[submodule "test2x3Global"]
+	path = test2x3Global
+	url = https://github.com/emiliomoran/test2x3Global.git
