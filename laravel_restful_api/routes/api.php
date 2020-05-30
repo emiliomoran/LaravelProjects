@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
 
 /**
  * User route
@@ -24,7 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
 
-/**
- * Product route
- */
-Route::resource('products', 'API\ProductController');
+Route::middleware('auth:api')->group(function () {
+    /**
+     * Product route
+     */
+    Route::resource('products', 'API\ProductController');
+});
